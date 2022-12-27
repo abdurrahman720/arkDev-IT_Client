@@ -1,14 +1,12 @@
 
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import Navbar from './Components/Navbar';
-import Home from './Pages/Home';
+import { router } from './Routes';
 
 function App() {
+
   return (
-    <div>
-      <Navbar></Navbar>
-      <Home></Home>
-    </div>
+    <RouterProvider router={router}></RouterProvider>
   );
 }
 
