@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import tab from '../assets/tablet-in-hand-mockup.png'
+import { CoursesCard } from '../Components/CoursesCard';
+import { UserContext } from '../Context/ContextData';
+
 const Home = () => {
+    const { courses } = useContext(UserContext);
+    console.log(courses);
     return (
         <>
            <div  className=" relative flex flex-col-reverse shadow-xl mx-5 py-16 lg:pt-0 lg:flex-col lg:pb-0">
@@ -56,6 +61,9 @@ const Home = () => {
       </div>
             </div>
             
+            <div className="mt-10 shadow-xl">
+             <CoursesCard courses={courses}></CoursesCard>
+            </div>
 
             {/* <div className="hero min-h-screen" style={{ backgroundImage: `url("https://i.ibb.co/ch5KdDk/tablet-in-hand-mockup.png")` }}>
   <div className="hero-overlay bg-opacity-60"></div>
@@ -67,6 +75,7 @@ const Home = () => {
     </div>
   </div>
 </div> */}
+            {/* instructor section */}
              <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="mx-auto mb-10 lg:max-w-xl sm:text-center">
         <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
@@ -79,10 +88,10 @@ const Home = () => {
       <div className="grid gap-10 mx-auto sm:grid-cols-1 lg:grid-cols-3 lg:max-w-screen-lg">
 
         <div>
-          <div className="relative pb-56 mb-4 rounded shadow lg:pb-64">
+                        <div className="relative pb-56 mb-4 rounded shadow lg:pb-64">
             <img
               className="absolute object-cover w-full h-full rounded"
-              src="https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              src="https://i.ibb.co/3N02DgB/167156201-2980397742242849-7783677086249156336-n.jpg"
               alt="Person"
             />
           </div>
@@ -119,7 +128,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col sm:text-center">
             <p className="text-lg font-bold">Alice Melbourne</p>
-            <p className="mb-5 text-xs text-gray-800">Human Resources</p>
+            <p className="mb-5 text-xs text-gray-800">UI/UX Design Instructor</p>
             <div className="flex items-center space-x-3 sm:justify-center">
               <a
                 href="/"
@@ -150,7 +159,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col sm:text-center">
             <p className="text-lg font-bold">John Doe</p>
-            <p className="mb-5 text-xs text-gray-800">Good guy</p>
+            <p className="mb-5 text-xs text-gray-800">Digital Marketing Instructor</p>
             <div className="flex items-center space-x-3 sm:justify-center">
               <a
                 href="/"
@@ -174,6 +183,8 @@ const Home = () => {
       </div>
             </div>
             
+
+             {/*stats section  */}
             <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div class="grid grid-cols-2 row-gap-8 md:grid-cols-4">
         <div class="text-center md:border-r">
@@ -201,7 +212,8 @@ const Home = () => {
           </p>
         </div>
       </div>
-    </div>
+            </div>
+
         </>
     );
 };
