@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import tab from '../assets/tablet-in-hand-mockup.png'
 import { CoursesCard } from '../Components/CoursesCard';
-import { UserContext } from '../Context/ContextData';
+
 
 const Home = () => {
-    const { courses } = useContext(UserContext);
-    console.log(courses);
+
+
     return (
         <>
            <div  className=" relative flex flex-col-reverse shadow-xl mx-5 py-16 lg:pt-0 lg:flex-col lg:pb-0">
@@ -62,7 +62,7 @@ const Home = () => {
             </div>
             
             <div className="mt-10 shadow-xl">
-             <CoursesCard courses={courses}></CoursesCard>
+             <CoursesCard></CoursesCard>
             </div>
 
             {/* <div className="hero min-h-screen" style={{ backgroundImage: `url("https://i.ibb.co/ch5KdDk/tablet-in-hand-mockup.png")` }}>

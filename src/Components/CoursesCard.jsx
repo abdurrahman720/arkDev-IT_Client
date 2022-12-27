@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../Context/ContextData";
 
-export const CoursesCard = ({courses}) => {
+export const CoursesCard = () => {
+    const { coursesName } = useContext(UserContext)
     return (
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -43,7 +46,7 @@ export const CoursesCard = ({courses}) => {
         </div>
         <div className="grid max-w-md gap-10 row-gap-8 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto">
                 {
-                    courses.map(course => (
+                    coursesName.map(course => (
                         <div className="flex flex-col transition duration-300 bg-dark rounded shadow-sm hover:shadow">
                         <div className="relative w-full h-48">
                           <img
@@ -60,8 +63,8 @@ export const CoursesCard = ({courses}) => {
                             </p>
                           </div>
                           <NavLink
-                            to="/courses"
-                            className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                            to={`/courses/${course.id}`}
+                            className="inline-flex mt-1 items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-black hover:text-white focus:shadow-outline focus:outline-none"
                           >
                             View Courses
                           </NavLink>

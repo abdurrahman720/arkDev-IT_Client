@@ -7,15 +7,15 @@ export const UserContext = createContext();
 
 const ContextData = ({ children }) => {
     
-    const [courses, setCourses] = useState([]);
+    const [coursesName, setCoursesName] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5222/courses')
             .then((response) => response.json())
-            .then(data => setCourses(data))
+            .then(data => setCoursesName(data))
     },[])
 
-    const contextData = { courses };
+    const contextData = { coursesName };
 
     return (
         <UserContext.Provider value={contextData}>

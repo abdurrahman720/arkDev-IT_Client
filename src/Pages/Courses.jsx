@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CoursesCard } from '../Components/CoursesCard';
+import { UserContext } from '../Context/ContextData';
 
 const Courses = () => {
+    const {courses} = useContext(UserContext)
     return (
-        <div>
-            Courses
-        </div>
+        <CoursesCard courses={courses}></CoursesCard>
     );
 };
 

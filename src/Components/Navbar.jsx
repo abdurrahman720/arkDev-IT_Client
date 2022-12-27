@@ -34,7 +34,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink
-                           to="/"
+                           to="/courses"
                             aria-label="Our product"
                             title="Our product"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -137,12 +137,12 @@ const Navbar = () => {
                                                 title="Our product"
                                                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                             >
-                                                Product
+                                               Home
                                             </NavLink>
                                         </li>
                                         <li>
                                             <NavLink
-                                               to="/"
+                                               to="/courses"
                                                 aria-label="Our product"
                                                 title="Our product"
                                                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
