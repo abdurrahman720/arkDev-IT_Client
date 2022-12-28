@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import LeftSide from './LeftSide';
 import { BsStarFill } from 'react-icons/bs';
 import { UserContext } from '../Context/ContextData';
+import ReactToPrint from 'react-to-print';
 
 
 const RightSide = () => {
@@ -11,6 +12,7 @@ const RightSide = () => {
     const { selectedCourse, setSelectedCourse } = useContext(UserContext);
 
     const navigate = useNavigate();
+    const ref = useRef();
 
     const handleCheckout = (singleCourse) => {
         const course = singleCourse;
@@ -25,12 +27,16 @@ const RightSide = () => {
                 <LeftSide></LeftSide>
             </div>
 
-            <div className="border-2  md:border-none  p-5 pt-1 bg-slate-300 row-span-2 md:col-span-2  ">
+            <div ref={ref} className="border-2  md:border-none  p-5 pt-1 bg-slate-300 row-span-2 md:col-span-2  ">
                 <div className="border-2 p-2">
                 <div className="flex justify-center">
                 <div>
                     <img className='w-56 mx-auto' src={image_url} alt="" />
-                    <p className="text-3xl font-bold">{title}</p>
+                            <div className='flex'>
+                                <p className="text-3xl font-bold">{title}</p>
+                                <ReactToPrint trigger={()=> <button className="p-2 mx-5 rounded bg-white border">print</button>} content={()=> ref.current} ></ReactToPrint>
+                            
+                            </div>
                 </div>  
                 </div>
                 <div>
@@ -54,7 +60,7 @@ const RightSide = () => {
                 </div>
                 <div className="flex justify-center">
                     
-                    <button onClick={()=>handleCheckout(singleCourse)} className='border-2 my-5 bg-white font-bold text=black p-5 hover:bg-slate-800 hover:text-white hover:translate-y-1 hover:shadow-xl'>Buy Now for ${price} </button>
+                    <button onClick={()=>handleCheckout(singleCourse)} className='border-2 my-5 bg-white font-bold text=black p-5 hover:bg-slate-800 hover:text-white hover:translate-y-1 hover:shadow-xl'>Get Premium Access for ${price} </button>
                     
                 </div>
             </div>

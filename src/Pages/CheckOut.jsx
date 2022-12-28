@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 const CheckOut = () => {
-    const { selectedCourse, setSelectedCourse } = useContext(UserContext);
+    const { selectedCourse } = useContext(UserContext);
     const { image_url, title, description, price } = selectedCourse;
 
     const navigate = useNavigate();
@@ -13,7 +13,6 @@ const CheckOut = () => {
     const buy = () => {
         
         toast.success('Course purchased success');
-        // setSelectedCourse();
         
        setTimeout(() => {
         navigate('/home'); 
