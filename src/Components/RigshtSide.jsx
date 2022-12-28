@@ -18,7 +18,7 @@ const RightSide = () => {
         const course = singleCourse;
         // console.log(course);
         setSelectedCourse(course);
-        navigate('/checkout')
+       
     }
 
     return (
@@ -60,7 +60,9 @@ const RightSide = () => {
                 </div>
                 <div className="flex justify-center">
                     
+                    <Link to={`/checkout/${_id}`}>
                     <button onClick={()=>handleCheckout(singleCourse)} className='border-2 my-5 bg-white font-bold text=black p-5 hover:bg-slate-800 hover:text-white hover:translate-y-1 hover:shadow-xl'>Get Premium Access for ${price} </button>
+                    </Link>
                     
                 </div>
             </div>

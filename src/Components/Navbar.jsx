@@ -44,7 +44,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink
-                           to="/"
+                           to="/faqs"
                             aria-label="Product FAQs"
                             title="Product FAQs"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -54,7 +54,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink
-                           to="/"
+                           to="/blogs"
                             aria-label="Blog"
                             title="Blog"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -64,7 +64,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink
-                           to="/"
+                           to="/login"
                             className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                             aria-label="Log In"
                             title="Log In"
