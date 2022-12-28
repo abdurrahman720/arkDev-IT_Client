@@ -1,12 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import LeftSide from './LeftSide';
 import { BsStarFill } from 'react-icons/bs';
+import { UserContext } from '../Context/ContextData';
 
 
 const RightSide = () => {
     const singleCourse = useLoaderData();
     const { _id, instructor, title, description, price, image_url, rating } = singleCourse;
+    const { selectedCourse, setSelectedCourse } = useContext(UserContext);
+
+    const navigate = useNavigate();
+
+    const handleCheckout = (singleCourse) => {
+        const course = singleCourse;
+        // console.log(course);
+        setSelectedCourse(course);
+        navigate('/checkout')
+    }
 
     return (
         <div className="grid grid-rows-1 md:grid-cols-3">
@@ -43,7 +54,7 @@ const RightSide = () => {
                 </div>
                 <div className="flex justify-center">
                     
-                    <button className='border-2 my-5 bg-white font-bold text=black p-5 hover:bg-slate-800 hover:text-white hover:translate-y-1 hover:shadow-xl'>Buy Now for ${price} </button>
+                    <button onClick={()=>handleCheckout(singleCourse)} className='border-2 my-5 bg-white font-bold text=black p-5 hover:bg-slate-800 hover:text-white hover:translate-y-1 hover:shadow-xl'>Buy Now for ${price} </button>
                     
                 </div>
             </div>
