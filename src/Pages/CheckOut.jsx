@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../Context/ContextData';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getStoredCart } from '../utilities/fakedb';
 
 const CheckOut = () => {
@@ -10,7 +10,7 @@ const CheckOut = () => {
     const navigate = useNavigate();
     // const [courses, setCourses] = useState([]);
     if (selectedCourse === null) {
-        return <div>Please buy course again</div>
+        return <div className='text-center text-3xl font-bold bg-fuchsia-200'>Please buy <Link className="text-sky-700  " to='/courses'>course</Link> again</div>
     }
     else {
         const { image_url, title, description, price } = selectedCourse;
