@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import PrivateRoutes from "./Authentication/PrivateRoutes";
 import LeftSide from "./Components/LeftSide";
 import RightSide from "./Components/RigshtSide";
 
@@ -11,6 +12,7 @@ import Faq from "./Pages/FAQs";
 
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 export const router = createBrowserRouter([
     {
@@ -44,6 +46,10 @@ export const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
+                path: '/register',
+                element: <Register></Register>
+            },
+            {
         
                 path: '/courses/:id',
                 loader: ({ params }) => fetch(`http://localhost:5222/courses/${params.id}`),
@@ -57,7 +63,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/checkout/:id',
-                element: <CheckOut></CheckOut>
+                element: <PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>
             }
             
       

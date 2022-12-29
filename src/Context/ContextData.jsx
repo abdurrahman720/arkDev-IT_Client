@@ -42,8 +42,8 @@ const ContextData = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    const updateName = (name) => {
-        return updateProfile(auth.currentUser, { displayName: name })
+    const updateProf = (name,PhotoURL) => {
+        return updateProfile(auth.currentUser, { displayName: name , photoURL: PhotoURL})
     }
     
 
@@ -60,7 +60,7 @@ const ContextData = ({ children }) => {
 
 
 
-    const contextData = { coursesName, coursesIn, setCoursesIn,selectedCourse, setSelectedCourse,loading, isLoading, googleSign,logOut,emailSignIn, emailSignUp, updateName, user };
+    const contextData = { coursesName, coursesIn, setCoursesIn,selectedCourse, setSelectedCourse,loading, isLoading, googleSign,logOut,emailSignIn, emailSignUp, updateProf, user };
 
     return (
         <UserContext.Provider value={contextData}>

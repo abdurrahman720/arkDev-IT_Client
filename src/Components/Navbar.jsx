@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import logo from '../assets/logo-no-background.png'
+import { UserContext } from '../Context/ContextData';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(UserContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+            alert('signout successfully')
+            })
+            .catch(err => {
+                alert(err);
+        })
+    }
+
     return (
         <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div className="relative flex items-center justify-between">
@@ -27,7 +40,7 @@ const Navbar = () => {
                            to="/Home"
                             aria-label="Our product"
                             title="Our product"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
                         >
                            Home
                         </NavLink>
@@ -37,7 +50,7 @@ const Navbar = () => {
                            to="/courses"
                             aria-label="Our product"
                             title="Our product"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
                         >
                             Courses
                         </NavLink>
@@ -47,7 +60,7 @@ const Navbar = () => {
                            to="/faqs"
                             aria-label="Product FAQs"
                             title="Product FAQs"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
                         >
                             FAQs
                         </NavLink>
@@ -57,20 +70,31 @@ const Navbar = () => {
                            to="/blogs"
                             aria-label="Blog"
                             title="Blog"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
                         >
                             Blog
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink
-                           to="/login"
-                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                            aria-label="Log In"
-                            title="Log In"
-                        >
-                            Log In
-                        </NavLink>
+                        {
+                            user?.uid ? <div 
+                            title={user.displayName} className="flex items-center"><img className='w-10 h-10 rounded' src={user.photoURL} alt="" /> <NavLink
+                                to="/login"
+                                onClick={handleLogOut}
+                             className="inline-flex items-center justify-center h-12 mx-2 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                             aria-label="Log In"
+                             title="Log In"
+                         >
+                             Log Out
+                         </NavLink> </div> : <NavLink
+                            to="/login"
+                             className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                             aria-label="Log In"
+                             title="Log In"
+                         >
+                             Log In
+                         </NavLink>
+                        }
                     </li>
                 </ul>
                 <div className="lg:hidden">
@@ -135,7 +159,7 @@ const Navbar = () => {
                                                to="/"
                                                 aria-label="Our product"
                                                 title="Our product"
-                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
                                             >
                                                Home
                                             </NavLink>
@@ -145,7 +169,7 @@ const Navbar = () => {
                                                to="/courses"
                                                 aria-label="Our product"
                                                 title="Our product"
-                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
                                             >
                                                 Courses
                                             </NavLink>
@@ -155,7 +179,7 @@ const Navbar = () => {
                                                to="/"
                                                 aria-label="Product FAQs"
                                                 title="Product FAQs"
-                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
                                             >
                                                 FAQs
                                             </NavLink>
@@ -165,20 +189,31 @@ const Navbar = () => {
                                                to="/"
                                                 aria-label="Blog"
                                                 title="Blog"
-                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
                                             >
                                                 Blog
                                             </NavLink>
                                         </li>
                                         <li>
-                                            <NavLink
-                                               to="/"
-                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                                aria-label="Log In"
-                                                title="Log In"
-                                            >
-                                                Log In
-                                            </NavLink>
+                                        {
+                            user?.uid ? <div 
+                            title={user.displayName} className="flex items-center"><img className='w-10 h-10 rounded' src={user.photoURL} alt="" /> <NavLink
+                                to="/login"
+                                onClick={handleLogOut}
+                             className="inline-flex items-center justify-center h-12 mx-2 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                             aria-label="Log In"
+                             title="Log In"
+                         >
+                             Log Out
+                         </NavLink> </div> : <NavLink
+                            to="/login"
+                             className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                             aria-label="Log In"
+                             title="Log In"
+                         >
+                             Log In
+                         </NavLink>
+                        }
                                         </li>
                                     </ul>
                                 </nav>
