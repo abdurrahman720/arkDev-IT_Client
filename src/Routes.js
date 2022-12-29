@@ -52,28 +52,28 @@ export const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-        
+
                 path: '/courses/:id',
-                loader: ({ params }) => fetch(`http://localhost:5222/courses/${params.id}`),
+                loader: ({ params }) => fetch(`https://ark-dev-it-server.vercel.app/courses/${params.id}`),
                 element: <Course></Course>,
-              
+
             },
             {
                 path: '/course/:id',
-               loader: ({ params }) => fetch(`http://localhost:5222/course/${params.id}`),
-                element:  <RightSide></RightSide>
+                loader: ({ params }) => fetch(`https://ark-dev-it-server.vercel.app/course/${params.id}`),
+                element: <RightSide></RightSide>
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>
             }
-            
-      
-           
+
+
+
         ],
-        
-       
+
+
     },
-   
-   
+
+
 ])

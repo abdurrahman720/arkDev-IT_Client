@@ -17,7 +17,7 @@ const CheckOut = () => {
         const buy = () => {
 
             toast.success('Course purchased success');
-    
+
             setTimeout(() => {
                 navigate('/home');
             }, 2000);
@@ -35,9 +35,9 @@ const CheckOut = () => {
                 </div>
             </div>
         );
-       }
+    }
     // useEffect(() => {
-    //     fetch('http://localhost:5222/allcourses')
+    //     fetch('https://ark-dev-it-server.vercel.app/allcourses')
     //         .then(response => response.json())
     //         .then(data => setCourses(data))
 
@@ -58,9 +58,9 @@ const CheckOut = () => {
     // }, [courses, selectedCourse])
 
 
-   
 
 
-    };
+
+};
 
 export default CheckOut;
