@@ -3,8 +3,7 @@
 This website has been made using ReactJs, Tailwind Css, Firebase, Node and ExpressJs.
 
 ## Live Site: 
-   [https://ark-dev-it.web.app/] (https://ark-dev-it.web.app/)
-
+   [https://ark-dev-it.web.app/]
 ### Key Features are:
     1. Fronted Development has been done with ReactJs 
     2. Used React Router for single page navigation;
