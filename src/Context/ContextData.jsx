@@ -12,7 +12,7 @@ const ContextData = ({ children }) => {
     
     const [coursesName, setCoursesName] = useState([]);
     const [coursesIn, setCoursesIn] = useState([]);
-    const [selectedCourse, setSelectedCourse] = useState();
+    const [selectedCourse, setSelectedCourse] = useState(null);
 
     useEffect(() => {
         fetch('http://localhost:5222/courses')

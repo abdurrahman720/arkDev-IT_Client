@@ -20,8 +20,11 @@ const RightSide = () => {
         // console.log(course);
         setSelectedCourse(course);
         addToDb(course._id);
+
         console.log(course._id);
+       
     }
+    
 
     return (
         <div className="grid grid-rows-1 md:grid-cols-3">
