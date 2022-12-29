@@ -1,14 +1,47 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../Context/ContextData';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { getStoredCart } from '../utilities/fakedb';
 
 const CheckOut = () => {
-    const { selectedCourse } = useContext(UserContext);
+    const [courses, setCourses] = useState([]);
+     const { selectedCourse, setSelectedCourse } = useContext(UserContext);
+    useEffect(() => {
+        fetch('http://localhost:5222/allcourses')
+            .then(response => response.json())
+            .then(data => setCourses(data))
+        
+    }, [])
+    
+   
+    useEffect(() => {
+        const getStoredCourse = getStoredCart();
+        for (const id in getStoredCourse) {
+            const addedCourse = courses.find(course => course._id === id);
+            console.log(addedCourse);
+            if (addedCourse) {
+                setSelectedCourse(addedCourse);
+            }
+           
+        }
+        
+        // setSelectedCourse(getStoredCourse)
+        
+    }, [courses])
+
+  
     const { image_url, title, description, price } = selectedCourse;
 
+    
+
     const navigate = useNavigate();
+
+    
+   
+
+
 
     const buy = () => {
         

@@ -4,6 +4,7 @@ import LeftSide from './LeftSide';
 import { BsStarFill } from 'react-icons/bs';
 import { UserContext } from '../Context/ContextData';
 import ReactToPrint from 'react-to-print';
+import { addToDb } from '../utilities/fakedb';
 
 
 const RightSide = () => {
@@ -18,7 +19,8 @@ const RightSide = () => {
         const course = singleCourse;
         // console.log(course);
         setSelectedCourse(course);
-       
+        addToDb(course._id);
+        console.log(course._id);
     }
 
     return (

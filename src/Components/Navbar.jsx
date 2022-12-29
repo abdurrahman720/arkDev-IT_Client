@@ -12,22 +12,22 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-            alert('signout successfully')
+                alert('signout successfully')
             })
             .catch(err => {
                 alert(err);
-        })
+            })
     }
 
     return (
         <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div className="relative flex items-center justify-between">
                 <NavLink
-                   to="/"
+                    to="/"
                     aria-label="ARK-DEV IT"
                     title="ARK-DEV IT"
                     className="inline-flex items-center"
-                >   
+                >
                     <img src={logo} className="w-14" alt="" />
 
                     <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
@@ -37,17 +37,17 @@ const Navbar = () => {
                 <ul className="flex items-center hidden space-x-8 lg:flex">
                     <li>
                         <NavLink
-                           to="/Home"
+                            to="/Home"
                             aria-label="Our product"
                             title="Our product"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
                         >
-                           Home
+                            Home
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-                           to="/courses"
+                            to="/courses"
                             aria-label="Our product"
                             title="Our product"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
@@ -57,7 +57,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink
-                           to="/faqs"
+                            to="/faqs"
                             aria-label="Product FAQs"
                             title="Product FAQs"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
@@ -67,7 +67,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink
-                           to="/blogs"
+                            to="/blogs"
                             aria-label="Blog"
                             title="Blog"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
@@ -77,24 +77,32 @@ const Navbar = () => {
                     </li>
                     <li>
                         {
-                            user?.uid ? <div 
-                            title={user.displayName} className="flex items-center"><img className='w-10 h-10 rounded' src={user.photoURL} alt="" /> <NavLink
-                                to="/login"
-                                onClick={handleLogOut}
-                             className="inline-flex items-center justify-center h-12 mx-2 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                             aria-label="Log In"
-                             title="Log In"
-                         >
-                             Log Out
-                         </NavLink> </div> : <NavLink
-                            to="/login"
-                             className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                             aria-label="Log In"
-                             title="Log In"
-                         >
-                             Log In
-                         </NavLink>
+                            user?.uid ? <div
+                                title={user.displayName} className="flex items-center"><img className='w-10 h-10 rounded' src={user.photoURL} alt="" /> <NavLink
+                                    to="/login"
+                                    onClick={handleLogOut}
+                                    className="inline-flex items-center justify-center h-12 mx-2 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                    aria-label="Log In"
+                                    title="Log In"
+                                >
+                                    Log Out
+                                </NavLink> </div> : <NavLink
+                                    to="/login"
+                                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                    aria-label="Log In"
+                                    title="Log In"
+                                >
+                                Log In
+                            </NavLink>
                         }
+                    </li>
+                    <li>
+                        <div className="form-control">
+                            <label className="label cursor-pointer">
+                                <span className="label-text">Dark Mode</span>
+                                <input type="checkbox" className="toggle toggle-xs mx-2" />
+                            </label>
+                        </div>
                     </li>
                 </ul>
                 <div className="lg:hidden">
@@ -125,12 +133,12 @@ const Navbar = () => {
                                 <div className="flex items-center justify-between mb-4">
                                     <div>
                                         <NavLink
-                                           to="/"
+                                            to="/"
                                             aria-label="ARK-DEV IT"
                                             title="ARK-DEV IT"
                                             className="inline-flex items-center"
                                         >
-                                           <img src={logo} className="w-14" alt="" />
+                                            <img src={logo} className="w-14" alt="" />
                                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                                                 ARK-DEV IT
                                             </span>
@@ -156,17 +164,17 @@ const Navbar = () => {
                                     <ul className="space-y-4">
                                         <li>
                                             <NavLink
-                                               to="/"
+                                                to="/"
                                                 aria-label="Our product"
                                                 title="Our product"
                                                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
                                             >
-                                               Home
+                                                Home
                                             </NavLink>
                                         </li>
                                         <li>
                                             <NavLink
-                                               to="/courses"
+                                                to="/courses"
                                                 aria-label="Our product"
                                                 title="Our product"
                                                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
@@ -176,7 +184,7 @@ const Navbar = () => {
                                         </li>
                                         <li>
                                             <NavLink
-                                               to="/"
+                                                to="/"
                                                 aria-label="Product FAQs"
                                                 title="Product FAQs"
                                                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
@@ -186,7 +194,7 @@ const Navbar = () => {
                                         </li>
                                         <li>
                                             <NavLink
-                                               to="/"
+                                                to="/"
                                                 aria-label="Blog"
                                                 title="Blog"
                                                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-700"
@@ -195,26 +203,34 @@ const Navbar = () => {
                                             </NavLink>
                                         </li>
                                         <li>
-                                        {
-                            user?.uid ? <div 
-                            title={user.displayName} className="flex items-center"><img className='w-10 h-10 rounded' src={user.photoURL} alt="" /> <NavLink
-                                to="/login"
-                                onClick={handleLogOut}
-                             className="inline-flex items-center justify-center h-12 mx-2 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                             aria-label="Log In"
-                             title="Log In"
-                         >
-                             Log Out
-                         </NavLink> </div> : <NavLink
-                            to="/login"
-                             className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                             aria-label="Log In"
-                             title="Log In"
-                         >
-                             Log In
-                         </NavLink>
-                        }
+                                            {
+                                                user?.uid ? <div
+                                                    title={user.displayName} className="flex items-center"><img className='w-10 h-10 rounded' src={user.photoURL} alt="" /> <NavLink
+                                                        to="/login"
+                                                        onClick={handleLogOut}
+                                                        className="inline-flex items-center justify-center h-12 mx-2 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                        aria-label="Log In"
+                                                        title="Log In"
+                                                    >
+                                                        Log Out
+                                                    </NavLink> </div> : <NavLink
+                                                        to="/login"
+                                                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                        aria-label="Log In"
+                                                        title="Log In"
+                                                    >
+                                                    Log In
+                                                </NavLink>
+                                            }
                                         </li>
+                                        <li>
+                        <div className="form-control">
+                            <label className="label cursor-pointer">
+                                <span className="label-text">Dark Mode</span>
+                                <input type="checkbox" className="toggle toggle-xs mx-2" />
+                            </label>
+                        </div>
+                    </li>
                                     </ul>
                                 </nav>
                             </div>
