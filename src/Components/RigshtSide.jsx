@@ -7,6 +7,7 @@ import ReactToPrint from 'react-to-print';
 import { addToDb } from '../utilities/fakedb';
 
 
+
 const RightSide = () => {
     const singleCourse = useLoaderData();
     const { _id, instructor, title, description, price, image_url, rating } = singleCourse;
@@ -39,8 +40,8 @@ const RightSide = () => {
                     <img className='w-56 mx-auto' src={image_url} alt="" />
                             <div className='flex'>
                                 <p className="text-3xl font-bold">{title}</p>
-                                <ReactToPrint trigger={()=> <button className="p-2 mx-5 rounded bg-white border">print</button>} content={()=> ref.current} ></ReactToPrint>
-                            
+                                <ReactToPrint trigger={() => <button className="p-2 mx-5 rounded bg-white border">print</button>} content={() => ref.current} ></ReactToPrint>
+
                             </div>
                 </div>  
                 </div>

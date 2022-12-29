@@ -8,6 +8,7 @@ import { Blog } from "./Pages/Blog";
 import CheckOut from "./Pages/CheckOut";
 import Course from "./Pages/Course";
 import Courses from "./Pages/Courses";
+import ErrorPage from "./Pages/ErrorPage";
 import Faq from "./Pages/FAQs";
 
 import Home from "./Pages/Home";
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',

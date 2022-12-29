@@ -1,11 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import React from 'react';
-import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
+import {createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 import { app } from "../Authentication/Firebase.config";
 
 export const UserContext = createContext();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 
 const ContextData = ({ children }) => {
@@ -26,6 +27,11 @@ const ContextData = ({ children }) => {
     const googleSign = () => {
         isLoading(true);
         return signInWithPopup(auth, googleProvider);
+    }
+
+    const githubSign = () => {
+        isLoading(true);
+        return signInWithPopup(auth, githubProvider);
     }
 
     const logOut = () => {
@@ -60,7 +66,7 @@ const ContextData = ({ children }) => {
 
 
 
-    const contextData = { coursesName, coursesIn, setCoursesIn,selectedCourse, setSelectedCourse,loading, isLoading, googleSign,logOut,emailSignIn, emailSignUp, updateProf, user };
+    const contextData = { coursesName, coursesIn, setCoursesIn,selectedCourse, setSelectedCourse,loading, isLoading, googleSign,logOut,emailSignIn, emailSignUp, updateProf, user, githubSign };
 
     return (
         <UserContext.Provider value={contextData}>
